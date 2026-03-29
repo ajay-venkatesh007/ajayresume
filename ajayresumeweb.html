@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajay Venkatesh | Anti-Gravity Space Resume</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-purple: #bd00ff;
+            --dark-bg: #03030a;
+            --glass-bg: rgba(10, 10, 30, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-color: #e0e0ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* Removed the custom cursor so your normal arrow works smoothly */
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: var(--neon-purple);
+            text-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        /* REALISTIC 3D SPACE BACKGROUND */
+        .space-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -3;
+            /* High Quality 3D Realistic Space Background */
+            background: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2500&auto=format&fit=crop') no-repeat center center/cover;
+            /* Alternate option: photo-1506703719100-a0f3a48c0f41 */
+        }
+
+        /* Dark overlay to ensure text remains perfectly readable */
+        .space-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(3, 3, 10, 0.9));
+            z-index: -2;
+        }
+
+        /* Planets Removed */
+
+        /* ---------------------------------------------------- */
+        /* MAIN CONTAINER                                       */
+        /* ---------------------------------------------------- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* GLASSMORPHISM & FLOAT ANIMATIONS */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            /* More realistic glass */
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.02);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .anti-gravity {
+            animation: float-obj 6s ease-in-out infinite;
+        }
+
+        @keyframes float-obj {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* SECTIONS */
+        .section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), transparent);
+            margin-left: 20px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            box-shadow: 0 0 30px rgba(189, 0, 255, 0.4);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-container::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border: 2px solid rgba(0, 243, 255, 0.5);
+            border-radius: 50%;
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            animation: rotate-solid 15s linear infinite;
+        }
+
+        @keyframes rotate-solid {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--dark-bg);
+            background-color: #1a1a2e;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ffffff, #bbbbff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .typewriter-container {
+            font-size: 1.5rem;
+            color: #b0b0d0;
+            font-family: 'Orbitron', monospace;
+            margin-bottom: 20px;
+            height: 35px;
+        }
+
+        .cursor-blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero-details {
+            font-size: 1rem;
+            color: #d0d0f0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* CONTACT CARDS */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        .contact-item .icon {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* LINKEDIN BUTTON DESIGN */
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, rgba(0, 119, 181, 0.8), rgba(0, 85, 130, 0.9));
+            border: 1px solid #0077b5;
+            color: white !important;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.4);
+            text-decoration: none;
+        }
+
+        .linkedin-btn:hover {
+            background: linear-gradient(135deg, rgba(0, 136, 204, 1), rgba(0, 119, 181, 1));
+            box-shadow: 0 6px 20px rgba(0, 119, 181, 0.6), 0 0 10px rgba(0, 119, 181, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            text-shadow: none;
+        }
+
+        /* GRIDS & LAYOUTS */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 850px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* TYPOGRAPHY IN CARDS */
+        .glass-card h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .glass-card .tagline,
+        .glass-card .highlight {
+            color: var(--neon-blue);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* REMOVED Arrow Animation '>', Replaced with standard bullet */
+        .bullet-list {
+            list-style: none;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .bullet-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--neon-purple);
+            font-size: 1.5rem;
+            line-height: 1;
+            top: -2px;
+        }
+
+        /* PROJECTS */
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #8080a0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20%;
+            right: 20%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 3D REALISTIC SPACE BACKGROUND & PLANETS -->
+    <div class="space-bg"></div>
+    <div class="space-overlay"></div>
+
+    <!-- Planets Removed per request -->
+
+    <!-- MAIN CONTENT -->
+    <div class="container main-content">
+
+        <!-- Hero Section -->
+        <header class="hero section">
+            <div class="profile-container anti-gravity" onclick="document.getElementById('photo-upload').click()"
+                style="cursor: pointer;" title="Click here to select and upload your photo!">
+                <img src="https://via.placeholder.com/200x200/03030a/00f3ff?text=Click+to+Add+Photo"
+                    alt="Ajay Venkatesh Profile Photo" class="profile-photo" id="profile-img">
+                <input type="file" id="photo-upload" style="display: none;" accept="image/*"
+                    onchange="loadPhoto(event)">
+            </div>
+            <h1 class="name">AJAY VENKATESH</h1>
+            <div class="typewriter-container">
+                <span id="typewriter"></span><span class="cursor-blink">_</span>
+            </div>
+            <div class="hero-details anti-gravity" style="animation-duration: 8s;">
+                <p>DOB: 29/06/2008 &nbsp;//&nbsp; LOCATION: Pollachi, Tamil Nadu</p>
+            </div>
+        </header>
+
+        <!-- Contact Info -->
+        <section class="contact section">
+            <div class="contact-grid">
+                <div class="glass-card anti-gravity contact-item" style="animation-delay: 0.1s;">
+                    <span class="icon">📞</span>
+                    <h3>Phone</h3>
+                    <p>+91 6381710917</p>
+                </div>
+                <div class="glass-card anti-gravity contact-item" style="animation-delay: 0.3s;">
+                    <span class="icon">✉️</span>
+                    <h3>Email</h3>
+                    <p><a href="mailto:Ajaycr900@gmail.com">Ajaycr900@gmail.com</a></p>
+                </div>
+                <div class="glass-card anti-gravity contact-item" style="animation-delay: 0.5s;">
+                    <span class="icon">🔗</span>
+                    <h3>LinkedIn</h3>
+                    <p>Let's connect professionally.</p>
+                    <!-- LinkedIn Button Added Here -->
+                    <a href="https://www.linkedin.com/in/ajay-venkatesh-0796a8383" target="_blank" class="linkedin-btn">
+                        View LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Objective -->
+        <section class="about section">
+            <h2 class="section-title">MISSION LOG // OBJECTIVE</h2>
+            <div class="glass-card anti-gravity" style="animation-delay: 0.2s;">
+                <p>An aspiring technologist with a deep passion for innovation, artificial intelligence, and building
+                    user-centric solutions. Dedicated to launching impactful projects and bridging the gap between
+                    futuristic concepts and tangible digital experiences. Determined to make an impact through scalable
+                    design and advanced mechanics.</p>
+            </div>
+        </section>
+
+        <div class="grid-layout">
+            <!-- Education -->
+            <section class="education section">
+                <h2 class="section-title">ACADEMICS</h2>
+                <div class="glass-card anti-gravity" style="animation-delay: 0.4s;">
+                    <h3>High School / Secondary Education</h3>
+                    <p class="highlight">Pollachi, Tamil Nadu</p>
+                    <p>Focusing on foundational sciences and computer science principles. Actively participating in
+                        technology, coding, and innovation-oriented events alongside the core curriculum.</p>
+                </div>
+            </section>
+
+            <!-- Technical Skills -->
+            <section class="skills section">
+                <h2 class="section-title">TECH ARSENAL</h2>
+                <div class="glass-card anti-gravity" style="animation-delay: 0.6s;">
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5 / CSS3</span>
+                        <span class="skill-tag">JavaScript / ES6</span>
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">AI Integration</span>
+                        <span class="skill-tag">Responsive Web</span>
+                        <span class="skill-tag">Problem Solving</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Projects -->
+        <section class="projects section">
+            <h2 class="section-title">PROJECT DEPLOYMENTS</h2>
+            <div class="grid-layout">
+                <div class="glass-card anti-gravity project-card" style="animation-delay: 0.1s;">
+                    <div>
+                        <h3>Moodfy</h3>
+                        <p class="tagline">Diary + AI Budget App</p>
+                        <p>An innovative conceptual application designed to track user moods alongside an AI-powered
+                            financial budgeting system, offering holistic lifestyle and mental-wealth management through
+                            artificial intelligence.</p>
+                    </div>
+                </div>
+                <div class="glass-card anti-gravity project-card" style="animation-delay: 0.4s;">
+                    <div>
+                        <h3>Workway</h3>
+                        <p class="tagline">Job Platform for Migrant Workers</p>
+                        <p>A dedicated platform conceptualized to connect migrant workers with verified job
+                            opportunities, bridging geographical differences and language/communication barriers
+                            effectively and equitably.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid-layout">
+            <!-- Certifications -->
+            <section class="certifications section">
+                <h2 class="section-title">TRANSMISSIONS // CERTS</h2>
+                <div class="glass-card anti-gravity" style="animation-delay: 0.3s;">
+                    <ul class="bullet-list">
+                        <li>UI/UX Design Fundamentals</li>
+                        <li>Web Development Basics Workflow</li>
+                        <li>Intro to AI Models & Logic</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Achievements -->
+            <section class="achievements section">
+                <h2 class="section-title">MILESTONES</h2>
+                <div class="glass-card anti-gravity" style="animation-delay: 0.7s;">
+                    <ul class="bullet-list">
+                        <li>Successfully ideated and prototyped functional flows for "Moodfy" and "Workway"
+                            applications.</li>
+                        <li>Active participant and logical thinker in regional tech innovation discussions.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- Extracurricular -->
+        <section class="extracurricular section">
+            <h2 class="section-title">EXTRA MODULES</h2>
+            <div class="glass-card anti-gravity" style="animation-delay: 0.2s;">
+                <p>Engaged in continuous learning, exploring the frontiers of Artificial Intelligence, experimenting
+                    with futuristic UI designs, keeping up to speed with tech ecosystems, and participating in tech
+                    communities to augment system knowledge.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Initiated by Ajay Venkatesh &copy; 2026. Systems Online.</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- 1. Typewriter Effect ---
+        const words = ["Futuristic Developer", "Tech Enthusiast", "UI/UX Innovator", "AI Explorer", "Visionary Builder"];
+        let i = 0;
+        let timer;
+        let isDeleting = false;
+        let txt = '';
+        let currentWordIndex = 0;
+        const typeWriterElement = document.getElementById('typewriter');
+
+        function typeLoop() {
+            const currentWord = words[currentWordIndex];
+
+            if (isDeleting) {
+                txt = currentWord.substring(0, txt.length - 1);
+            } else {
+                txt = currentWord.substring(0, txt.length + 1);
+            }
+
+            typeWriterElement.innerHTML = txt;
+
+            let typeSpeed = 100;
+
+            if (isDeleting) { typeSpeed /= 2; }
+
+            if (!isDeleting && txt === currentWord) {
+                // Pause at the end
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && txt === '') {
+                isDeleting = false;
+                currentWordIndex = (currentWordIndex + 1) % words.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeLoop, typeSpeed);
+        }
+
+        // Start typing loop
+        setTimeout(typeLoop, 1000);
+
+        // --- 2. Scroll Reveal Animation (Intersection Observer) ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1 // triggers when 10% of element is visible
+        });
+
+        const sections = document.querySelectorAll('.section');
+        sections.forEach((el) => observer.observe(el));
+
+        // --- 3. Persistent Photo Upload Logic ---
+        function loadPhoto(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const imgData = e.target.result;
+                    document.getElementById('profile-img').src = imgData;
+                    // Save to localStorage so it stays forever when you refresh
+                    localStorage.setItem('ajay_resume_photo', imgData);
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Check for saved photo on load
+        window.addEventListener('load', () => {
+            const savedPhoto = localStorage.getItem('ajay_resume_photo');
+            if (savedPhoto) {
+                document.getElementById('profile-img').src = savedPhoto;
+            }
+        });
+    </script>
+</body>
+
+</html>
